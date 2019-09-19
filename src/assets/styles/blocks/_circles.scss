@@ -1,0 +1,87 @@
+$diam: 0.75rem;
+
+.circle {
+  position: relative;
+  height: $diam;
+  width: $diam;
+
+  border-radius: 100%;
+
+  @include breakpoint(m) {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    width: 100%;
+    display: block;
+    position: absolute;
+    height: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 100%;
+    transform-origin: center center;
+    opacity: 0;
+    box-sizing: border-box;
+  }
+
+  &:before {
+    animation: 1s 0.1s pulse2 infinite linear;
+  }
+
+  &::after {
+    animation: 1s pulse infinite linear;
+  }
+}
+
+.circle--done {
+  background: $green;
+  &:before,
+  &:after {
+    border: 1px solid $green;
+  }
+}
+
+.circle--pending {
+  background: $orange;
+  &:before,
+  &:after {
+    border: 1px solid $orange;
+  }
+}
+
+.circle--ongoing {
+  background: $red;
+  &:before,
+  &:after {
+    border: 1px solid $red;
+  }
+}
+
+// outer circle
+@keyframes pulse {
+  0% {
+    transform: scale(2);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(2.3);
+    opacity: 0;
+  }
+}
+
+// inner circle
+@keyframes pulse2 {
+  0% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
