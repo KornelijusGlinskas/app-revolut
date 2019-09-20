@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
+
+import Queue from './views/Queue.vue';
+import Specialist from './views/Specialist.vue';
+import Admin from './views/Admin.vue';
 
 Vue.use(Router);
 
@@ -10,18 +13,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'queue',
+      component: Queue
     },
     {
       path: '/specialist',
       name: 'specialist',
-      component: () => import('./views/Specialist.vue')
+      component: Specialist
     },
     {
       path: '/admin',
       name: 'admin',
-      component: () => import('./views/Admin.vue')
+      component: Admin
     }
   ]
 });

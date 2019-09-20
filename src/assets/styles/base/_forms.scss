@@ -1,0 +1,46 @@
+select,
+option {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  color: $grey;
+}
+
+.input,
+select {
+  width: 100%;
+  font-size: 0.75rem;
+  padding: 0.5rem;
+  color: $grey;
+  border: 1px solid $grey;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease-in;
+  @include breakpoint(m) {
+    padding: 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  outline: none;
+  border: 1px solid $blue;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+select {
+  background: transparent;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 50%;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}

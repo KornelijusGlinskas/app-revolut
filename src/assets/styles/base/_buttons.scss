@@ -1,0 +1,29 @@
+.btn {
+  display: block;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 0;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  transition: all 0.2s ease-in-out;
+  @include breakpoint(m) {
+    padding: 1rem 0;
+    font-size: 0.875rem;
+  }
+
+  &:hover {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.btn--blue {
+  background: $blue;
+}
+
+.btn--green {
+  background: $green;
+}
+
+.btn--full {
+  width: 100%;
+}

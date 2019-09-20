@@ -1,0 +1,13 @@
+.alert {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  background-color: $green;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  @include box;
+}
