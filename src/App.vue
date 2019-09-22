@@ -2,6 +2,7 @@
   <div id="app">
     <app-sidebar></app-sidebar>
     <router-view class="page-content p-4 md:p-8" />
+    <app-alert></app-alert>
   </div>
 </template>
 

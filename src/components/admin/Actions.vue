@@ -1,5 +1,5 @@
 <template>
-  <div class="admin__actions w-full p-8 lg:w-3/5">
+  <div class="admin__actions w-full p-8 mt-16 lg:w-3/5 text-left">
     <h2 class="font-bold text-xl text-left mb-4 md:mb-8 md:text-3xl">Actions</h2>
     <div class="info flex items-center mb-2">
       <span class="icon-info mr-2 text-blue"></span>
@@ -22,6 +22,9 @@ export default {
     },
     clients() {
       return this.$store.getters.clients;
+    },
+    tickets() {
+      return this.$store.getters.tickets;
     }
   },
 
@@ -33,11 +36,17 @@ export default {
         JSON.stringify(this.specialists)
       );
       window.localStorage.setItem('clients', JSON.stringify(this.clients));
+      window.localStorage.setItem('tickets', this.tickets);
+      // Show success alert
+      this.$store.dispatch('showAlert', {
+        message: 'The data was saved! 💻'
+      });
     },
     // Remove local storage
     removeLocal() {
       window.localStorage.removeItem('specialists');
       window.localStorage.removeItem('specialists');
+      this.$store.dispatch('showAlert', { message: 'The data was removed! 🗑' });
     }
   }
 };

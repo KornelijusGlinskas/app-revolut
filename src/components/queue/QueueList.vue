@@ -6,34 +6,31 @@
       v-if="!clients.length"
     >Load clients list</button>
 
-    <div
-      class="queue__tags w-full flex items-center px-1 py-2 text-grey md:px-4"
-      v-if="clients.length"
-    >
-      <div class="w-1/5">Unique Number</div>
-      <div class="w-1/5">Name</div>
-      <div class="w-1/5">Specialist</div>
-      <div class="w-1/5">Expected time</div>
-      <div class="w-1/5">Left to wait</div>
+    <div v-if="clients.length" class="queue__lightboard">
+      <div class="queue__tags w-full flex items-center px-1 py-2 text-grey md:px-4">
+        <div class="w-1/5">Unique Number</div>
+        <div class="w-1/5">Name</div>
+        <div class="w-1/5">Specialist</div>
+        <div class="w-1/5">Scheduled time</div>
+        <div class="w-1/5">Left to wait</div>
+      </div>
+      <queue-client v-for="client in clients" :key="client.number" :client="client"></queue-client>
     </div>
 
-    <div
-      v-for="client in clients"
-      :key="client.number"
-      class="queue__person relative w-full flex items-center rounded shadow-lg font-bold px-1 py-3 mb-4 md:p-4"
-    >
-      <div class="person__number w-1/5">#{{ client.number}}</div>
-      <div class="person__name w-1/5">{{ client.name }}</div>
-      <div class="person__specialist w-1/5">{{ client.specialist }}</div>
-      <div class="person__expected-time w-1/5">14.22</div>
-      <div class="person__wait-time w-1/5">{{ client. time}}</div>
-      <div class="person__status-circle circle circle--pending"></div>
+    <div v-else>
+      <p class="font-bold">All clients sessions are over. 😢 Add new ones in Admin Page! 👨🏼‍💻</p>
     </div>
   </div>
 </template>
 
 <script>
+import { format } from 'date-fns';
+import queueClient from './Client';
+
 export default {
+  components: {
+    queueClient
+  },
   methods: {
     loadClients() {
       this.$http
@@ -47,10 +44,17 @@ export default {
             this.$store.dispatch('assignClient', client);
             this.$store.dispatch('sortClients');
           });
+
+          // verificate ajax call
+          this.$store.dispatch('showAlert', {
+            message: 'The data was loaded! 👨🏼‍💻'
+          });
         })
         .catch(error => {
-          alert('Sorry, Could not retrieve clients data');
-          console.log(error);
+          this.$store.dispatch('showAlert', {
+            type: 'error',
+            message: 'Sorry, could not retrieve clients data. 😭'
+          });
         });
     }
   },

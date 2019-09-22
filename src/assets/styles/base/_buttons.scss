@@ -1,5 +1,6 @@
 .btn {
   display: block;
+  text-align: center;
   color: white;
   font-weight: bold;
   padding: 0.5rem 0;
@@ -26,4 +27,10 @@
 
 .btn--full {
   width: 100%;
+}
+
+.btn--disabled {
+  // background: $red;
+  opacity: 0.5;
+  cursor: auto;
 }

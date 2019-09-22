@@ -5,8 +5,14 @@ import store from './store';
 
 import axios from 'axios';
 
+import dateMixin from './mixins/dateMixin';
+import Alert from '@/components/TheAlert.vue';
+
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
+Vue.component('app-alert', Alert);
+
+Vue.mixin(dateMixin);
 
 new Vue({
   router,

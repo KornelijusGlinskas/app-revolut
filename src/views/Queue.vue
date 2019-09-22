@@ -30,10 +30,4 @@ export default {
     font-size: 1rem;
   }
 }
-
-.person__status-circle {
-  position: absolute;
-  top: calc(#{$diam} / -2);
-  right: calc(#{$diam} / -2);
-}
 </style>

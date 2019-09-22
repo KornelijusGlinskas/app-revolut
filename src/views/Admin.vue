@@ -1,8 +1,8 @@
 <template>
   <div class="admin flex flex-col items-center">
     <h1 class="font-bold text-3xl mb-8 md:text-5xl md:mb-16">Admin Panel</h1>
-    <actions />
     <register />
+    <actions />
   </div>
 </template>
 
