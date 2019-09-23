@@ -9,6 +9,9 @@ import dateMixin from './mixins/dateMixin';
 import Alert from '@/components/TheAlert.vue';
 
 Vue.config.productionTip = false;
+
+axios.defaults.baseURL = process.env.BASE_URL;
+
 Vue.prototype.$http = axios;
 Vue.component('app-alert', Alert);
 
