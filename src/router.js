@@ -5,6 +5,7 @@ import Queue from './views/Queue.vue';
 import Specialist from './views/Specialist.vue';
 import Admin from './views/Admin.vue';
 import User from './views/User.vue';
+import Statistics from './views/Statistics.vue';
 
 Vue.use(Router);
 
@@ -26,6 +27,11 @@ export default new Router({
       path: '/user',
       name: 'user',
       component: User
+    },
+    {
+      path: '/statistics',
+      name: 'statistics',
+      component: Statistics
     },
     {
       path: '/admin',

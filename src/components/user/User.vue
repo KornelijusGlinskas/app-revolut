@@ -129,7 +129,6 @@ export default {
       }
     },
     isLast(name, clientIndex, lastIndex) {
-      console.log(lastIndex, clientIndex);
       if (clientIndex === lastIndex) {
         this.$store.dispatch('showAlert', {
           message: `${name} is the last client`,

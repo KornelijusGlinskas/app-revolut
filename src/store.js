@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import Vuex, { createNamespacedHelpers } from 'vuex';
+import Vuex from 'vuex';
 
-import { addSeconds, getTime, differenceInSeconds } from 'date-fns';
+import { differenceInSeconds } from 'date-fns';
 import { methods as dateMethods } from './mixins/dateMixin';
 
 import specialists from './data/specialists';
@@ -72,7 +72,7 @@ export default new Vuex.Store({
       const specialist = state.specialists[index];
 
       // get current time timestamp
-      const curTime = getTime(new Date());
+      const curTime = dateMethods.getCurrentTime();
 
       // create person object
       const person = {

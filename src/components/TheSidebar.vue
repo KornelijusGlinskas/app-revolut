@@ -54,7 +54,7 @@
       </ul>
     </nav>
     <div class="nav__copyright p-8 text-sm">
-      <p class="hidden md:block">2019 © all rights reserved</p>
+      <p class="hidden md:block">{{ new Date().getFullYear() }} © all rights reserved</p>
     </div>
   </div>
 </template>
