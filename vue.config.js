@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: '/app-revolut',
+  publicPath: process.env.NODE_ENV === 'production' ? '/app-revolut/' : '/',
   outputDir: 'docs',
   css: {
     loaderOptions: {
