@@ -39,30 +39,58 @@ export default {
 
   methods: {
     registerClient() {
-      // register new  client by sending filled data
-      this.$store.dispatch('assignClient', {
-        name: this.name,
-        specialist: this.specialist
-      });
+      if (this.validateForm()) {
+        // register new  client by sending filled data
+        this.$store.dispatch('assignClient', {
+          name: this.name,
+          specialist: this.specialist
+        });
 
-      // verificate that register went succesfully with alert
-      this.$store.dispatch('showAlert', {
-        message: `${this.name} was successfully registered! 🎉`
-      });
+        // verificate that register went succesfully with alert
+        this.$store.dispatch('showAlert', {
+          message: `${this.name} was successfully registered! 🎉`
+        });
 
-      // clear fields
-      this.name = '';
-      this.specialist = '';
+        // clear fields
+        this.name = '';
+        this.specialist = '';
 
-      // set focus once again
-      this.$refs.nameInput.focus();
+        // set focus once again
+        this.$refs.nameInput.focus();
+      }
     },
 
+    validateForm() {
+      let message = '';
+
+      // if all fields filled register client
+      if (this.name && this.specialist && this.name !== 'Vardenis') {
+        return true;
+      }
+
+      if (this.name === '' && this.specialist === '')
+        message = 'Please fill fields ✍️';
+
+      if (this.name === '' && this.specialist !== '')
+        message = 'Name field is missing 🤔';
+
+      if (this.name !== '' && this.specialist === '')
+        message = 'Please select specialist 👨‍💼';
+
+      if (this.name === 'Vardenis')
+        message = 'Sorry "Vardenis" isn\'t available 🙅‍♂️';
+
+      this.$store.dispatch('showAlert', {
+        message,
+        type: 'error'
+      });
+      return false;
+    },
     expectedTime(name) {
       const index = this.specialists.findIndex(
         specialist => specialist.name === name
       );
-      return this.$store.getters.specialists[index].avgTime;
+      return this.$store.getters.specialists[index].queueTime;
     }
   },
 

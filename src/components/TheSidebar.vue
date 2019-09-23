@@ -20,22 +20,35 @@
         <router-link to="/" tag="li" class="nav__item">
           <a class="item__link">
             <span class="icon-clock item__icon"></span>
-            <span class="item__text hidden md:block">Queue Line</span>
+            <span class="item__text hidden md:block">Queue</span>
           </a>
         </router-link>
 
         <router-link to="/specialist" tag="li" class="nav__item">
           <a class="item__link">
-            <span class="icon-user item__icon"></span>
+            <span class="icon-specialist item__icon"></span>
+            <span class="item__text hidden md:block">Specialist</span>
+          </a>
+        </router-link>
 
-            <span class="item__text hidden md:block">Specialist Page</span>
+        <router-link to="/user" tag="li" class="nav__item">
+          <a class="item__link">
+            <span class="icon-user item__icon"></span>
+            <span class="item__text hidden md:block">User</span>
+          </a>
+        </router-link>
+
+        <router-link to="/statistics" tag="li" class="nav__item">
+          <a class="item__link">
+            <span class="icon-statistics item__icon"></span>
+            <span class="item__text hidden md:block">Statistics</span>
           </a>
         </router-link>
 
         <router-link to="/admin" tag="li" class="nav__item">
           <a class="item__link">
             <span class="icon-settings item__icon"></span>
-            <span class="item__text hidden md:block">Admin Page</span>
+            <span class="item__text hidden md:block">Admin</span>
           </a>
         </router-link>
       </ul>

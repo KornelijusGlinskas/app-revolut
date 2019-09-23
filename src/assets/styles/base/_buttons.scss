@@ -1,3 +1,7 @@
+*:focus {
+  outline: 0 !important;
+}
+
 .btn {
   display: block;
   text-align: center;
@@ -25,12 +29,52 @@
   background: $green;
 }
 
+.btn--red {
+  background: $red;
+}
+
+.btn--orange {
+  background: $orange;
+}
+
 .btn--full {
   width: 100%;
 }
 
+.btn--half {
+  width: 100%;
+
+  @include breakpoint(m) {
+    width: 50%;
+  }
+}
+
 .btn--disabled {
-  // background: $red;
   opacity: 0.5;
   cursor: auto;
+}
+
+.toggle-btn {
+  position: absolute;
+  z-index: 9999;
+  bottom: 2rem;
+  left: 1rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+
+  color: white;
+  font-size: 1.5rem;
+  background: $blue;
+  box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease-in-out;
+
+  @include breakpoint(m) {
+    @include absoluteCenter;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.5);
+  }
 }

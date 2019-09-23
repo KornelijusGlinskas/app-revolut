@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <app-sidebar></app-sidebar>
-    <router-view class="page-content p-4 md:p-8" />
+    <transition name="slide-fade" mode="out-in">
+      <router-view class="page-content p-4 md:p-8" />
+    </transition>
     <app-alert></app-alert>
   </div>
 </template>
@@ -21,8 +23,8 @@ export default {
   },
 
   mounted() {
-    const storage = window.localStorage;
     // if local storage data exists, fetch it
+    const storage = window.localStorage;
     if (storage.getItem('specialists') && storage.getItem('clients')) {
       this.$store.dispatch('fetchData');
     }

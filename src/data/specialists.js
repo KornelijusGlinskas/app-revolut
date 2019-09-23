@@ -1,17 +1,20 @@
 export default [
   {
     name: 'B. Gates',
-    avgTime: 5,
+    avgTime: 600,
+    queueTime: 0,
     clients: []
   },
   {
     name: 'E. Musk',
-    avgTime: 15,
+    avgTime: 51,
+    queueTime: 0,
     clients: []
   },
   {
     name: 'J. Bezos',
-    avgTime: 81,
+    avgTime: 112,
+    queueTime: 0,
     clients: []
   }
 ];

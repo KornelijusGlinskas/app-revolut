@@ -22,7 +22,7 @@
         <span class="icon-info mr-2 text-green"></span>
         <p
           class="text-grey text-left text-xs md:text-base"
-        >Press green box with tick in order to mark it as done</p>
+        >Press green box with a tick in order to mark it as done</p>
       </div>
 
       <div class="queue__list w-full flex flex-wrap md:-mx-4">
@@ -116,15 +116,16 @@ export default {
   }
 };
 </script>
-<style scoped lang="scss">
+<style  lang="scss">
 .queue__list {
-  strong {
-    color: $black;
-    font-weight: bold;
-  }
   & > div p {
     text-align: left;
   }
+}
+
+strong {
+  color: $black;
+  font-weight: bold;
 }
 
 .list__item {
