@@ -1,4 +1,6 @@
 module.exports = {
+  publicPath: '/app-revolut',
+  outputDir: 'docs',
   css: {
     loaderOptions: {
       sass: {
